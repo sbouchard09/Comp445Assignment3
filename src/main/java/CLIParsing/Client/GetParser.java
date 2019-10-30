@@ -6,9 +6,6 @@ import com.beust.jcommander.Parameters;
 @Parameters(commandDescription = "GET Request")
 public class GetParser {
 
-    @Parameter(names = {"help"}, help = true)
-    private Boolean help = false;
-
     @Parameter(names = {"-v"})
     private Boolean verbose = false;
 
@@ -35,9 +32,5 @@ public class GetParser {
 
     public String getOutputFile() {
         return outputFile;
-    }
-
-    public Boolean getHelp() {
-        return help;
     }
 }
