@@ -5,6 +5,7 @@ import UDPClient.UDPClient;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.net.URL;
 import java.util.Map;
 
 public class PostRequest extends Request {
@@ -41,7 +42,11 @@ public class PostRequest extends Request {
     public void sendRequest() {
 
         try {
-            udpClient.setMessage(prepareRequest(body));
+            URL url = new URL(this.url);
+            serverHost = url.getHost();
+            if(url.getPort() != -1) serverPort = url.getPort();
+
+            udpClient.setMessage(prepareRequest(url, body));
             SocketAddress routerAddress = new InetSocketAddress(routerHost, routerPort);
             InetSocketAddress serverAddress = new InetSocketAddress(serverHost, serverPort);
             udpClient.runClient(routerAddress, serverAddress);
