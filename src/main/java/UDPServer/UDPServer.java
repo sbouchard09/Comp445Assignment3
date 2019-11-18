@@ -4,12 +4,6 @@ package UDPServer;
 Using template as provided on Moodle
  */
 import Packet.Packet;
-/*
-import joptsimple.OptionParser;
-import joptsimple.OptionSet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-*/
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -24,11 +18,11 @@ public class UDPServer {
 
     //private static final Logger logger = LoggerFactory.getLogger(UDPServer.class);
 
-    private void listenAndServe(int port) throws IOException {
+    public void listenAndServe(int port) throws IOException {
 
         try (DatagramChannel channel = DatagramChannel.open()) {
             channel.bind(new InetSocketAddress(port));
-            //logger.info("EchoServer is listening at {}", channel.getLocalAddress());
+            System.out.println("Listening on port: " + port + " :)");
             ByteBuffer buf = ByteBuffer
                     .allocate(Packet.MAX_LEN)
                     .order(ByteOrder.BIG_ENDIAN);
