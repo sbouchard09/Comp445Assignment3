@@ -53,17 +53,4 @@ public class UDPServer {
             }
         }
     }
-/*
-    public static void main(String[] args) throws IOException {
-        OptionParser parser = new OptionParser();
-        parser.acceptsAll(asList("port", "p"), "Listening port")
-                .withOptionalArg()
-                .defaultsTo("8007");
-
-        OptionSet opts = parser.parse(args);
-        int port = Integer.parseInt((String) opts.valueOf("port"));
-        UDPServer server = new UDPServer();
-        server.listenAndServe(port);
-    }
-*/
 }
