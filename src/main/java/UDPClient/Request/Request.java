@@ -30,6 +30,8 @@ public abstract class Request {
         this.url = url;
         this.isVerbose = isVerbose;
         this.headers = headers;
+        this.requestMethod = requestMethod;
+        this.udpClient = udpClient;
     }
 
     public abstract void sendRequest();

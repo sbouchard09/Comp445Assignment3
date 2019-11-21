@@ -1,8 +1,8 @@
 package UDPServer;
 
-/*
-Using template as provided on Moodle
- */
+/**************************************
+ Using template as provided on Moodle
+ **************************************/
 import Packet.Packet;
 import java.io.IOException;
 import java.net.InetSocketAddress;

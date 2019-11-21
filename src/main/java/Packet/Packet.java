@@ -1,8 +1,8 @@
 package Packet;
 
-/*
-Using template as provided on Moodle
- */
+/**************************************
+ *Using template as provided on Moodle*
+ **************************************/
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -16,7 +16,8 @@ import java.nio.ByteOrder;
 public class Packet {
 
     public static final int MIN_LEN = 11;
-    public static final int MAX_LEN = 11 + 1024;
+    public static final int MAX_LEN = 1024; // max length of a packet
+    public static final int MAX_PAYLOAD = MAX_LEN - MIN_LEN; // max length of a payload
 
     private final int type;
     private final long sequenceNumber;

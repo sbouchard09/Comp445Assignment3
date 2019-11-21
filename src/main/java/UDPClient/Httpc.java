@@ -62,19 +62,6 @@ public class Httpc {
                 }
             }
 
-            if(parameters.getRouterHost() != null) {
-                request.setRouterHost(parameters.getRouterHost());
-            }
-            if(parameters.getRouterPort() != null) {
-                request.setRouterPort(parameters.getRouterPort());
-            }
-            if(parameters.getServerHost() != null) {
-                request.setServerHost(parameters.getServerHost());
-            }
-            if(parameters.getServerPort() != null) {
-                request.setServerPort(parameters.getServerPort());
-            }
-
             if(request != null) request.sendRequest();
         }
     }
