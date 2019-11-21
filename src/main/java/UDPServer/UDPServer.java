@@ -18,7 +18,7 @@ public class UDPServer {
 
     //private static final Logger logger = LoggerFactory.getLogger(UDPServer.class);
 
-    public void listenAndServe(int port) throws IOException {
+    public void listenAndServe(int port, String directory) throws IOException {
 
         try (DatagramChannel channel = DatagramChannel.open()) {
             channel.bind(new InetSocketAddress(port));
@@ -37,9 +37,6 @@ public class UDPServer {
                 buf.flip();
 
                 String payload = new String(packet.getPayload(), UTF_8);
-                //logger.info("Packet: {}", packet);
-                //logger.info("Payload: {}", payload);
-                //logger.info("Router: {}", router);
 
                 // Send the response to the router not the client.
                 // The peer address of the packet is the address of the client already.

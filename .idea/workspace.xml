@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b1302ba7-cb0d-44a9-9e8a-05c026bc9cdc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/UDPServer/Httpfs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UDPServer/Httpfs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UDPServer/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UDPServer/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,8 +22,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="867">
-                    <caret line="51" selection-start-line="51" selection-end-line="51" />
+                  <state relative-caret-position="136">
+                    <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -40,8 +42,8 @@
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/UDPClient.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="178">
-                    <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+                  <state relative-caret-position="467">
+                    <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="e#2040#2041#0" expanded="true" />
@@ -54,8 +56,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/Httpfs.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="306">
-                    <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+                  <state relative-caret-position="374">
+                    <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -70,11 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Httpc.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="60" column="55" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
+            <state relative-caret-position="561">
+              <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,10 +138,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Request/GetRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="510">
+              <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/Response.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="637">
+              <caret line="188" column="219" lean-forward="true" selection-start-line="188" selection-start-column="105" selection-end-line="188" selection-end-column="219" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6593#6594#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,36 +175,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Packet/Packet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="765">
+              <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://F:/Java/jdk1.8.0_121/src.zip!/java/lang/RuntimeException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
-              <folding>
-                <element signature="e#1598#1599#0" expanded="true" />
-                <element signature="e#1628#1629#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://F:/Java/jdk1.8.0_121/src.zip!/java/lang/Exception.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
-              <folding>
-                <element signature="e#1663#1664#0" expanded="true" />
-                <element signature="e#1693#1694#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -232,7 +221,6 @@
         <option value="$PROJECT_DIR$/src/main/java/UDPClient/Help.java" />
         <option value="$PROJECT_DIR$/src/main/java/CLIParsing/CLIParameter.java" />
         <option value="$PROJECT_DIR$/src/main/java/UDPClient/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/UDPServer/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/CLIParsing/Client/GetParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/CLIParsing/Client/PostParser.java" />
@@ -243,6 +231,8 @@
         <option value="$PROJECT_DIR$/src/main/java/UDPClient/Request/GetRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/UDPClient/Request/PostRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/UDPServer/Httpfs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UDPServer/Response.java" />
       </list>
     </option>
   </component>
@@ -269,8 +259,8 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -364,15 +354,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="UDPServer" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Comp445Assignment3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Comp445Assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UDPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="response" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -382,7 +363,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574100177187" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574359783636" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -419,13 +400,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project Explorer" order="0" />
       <window_info id="Job Explorer" order="1" />
       <window_info id="DB Browser" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.25746268" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.10021322" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
@@ -448,7 +429,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.11353944" />
+      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.023454158" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -464,20 +445,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CLIParsing/ClientParser.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/CLIParsing/ServerParser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/response/GetResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/response/PostResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Help.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -572,18 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/UDPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2078#2079#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Request/Request.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -624,16 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Request/GetRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Request/PostRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -644,10 +589,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Httpc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Request/GetRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/response/PostResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/response/GetResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Packet/Packet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="765">
+          <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/UDPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2040#2041#0" expanded="true" />
+            <element signature="e#2078#2079#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/Httpfs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -661,32 +672,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPClient/Httpc.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/Response.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="60" column="55" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
+        <state relative-caret-position="637">
+          <caret line="188" column="219" lean-forward="true" selection-start-line="188" selection-start-column="105" selection-end-line="188" selection-end-column="219" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/UDPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDPServer/Httpfs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#6593#6594#0" expanded="true" />
           </folding>
         </state>
       </provider>
