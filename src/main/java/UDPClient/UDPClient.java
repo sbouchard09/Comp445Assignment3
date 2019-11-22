@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.Buffer;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -131,5 +132,37 @@ public class UDPClient {
             return -1;
         }
     }
+
+    private Packet assemblePackets(Buffer buffer, String directory, SocketAdresse router) {
+        HashMap<Integer, String> map = new HashMap<Integer, String>();
+        Packet packet = null;
+
+        do {
+            buffer.flip();
+            packet = Packet.fromBuffer(buffer);
+            buffer.flip();
+            String payload = new String(packet.getPayload(), StandardCharsets.UTF_8);
+            map.put(packet.getType == SYN) {
+                return handleHandshake(packet);
+            } else if(packet.getType == DATA) {
+                sendAck(packet, router);
+            }else if(packet.getType == FIN) {
+                // assemble message in order
+                StringBuilder messageBuilder = new StringBuilder();
+                SortedSet<Integer> keys = new Treeset<>(map.ketSet());
+                for(Integer key : keys) {
+                    messageBuilder.append(map.get(key));
+                }
+
+                Response response = new Response(directory);
+                response.handleResquest(messageBuilder.toString());
+                String response = response.getResponse();
+
+                return packet.toBuilder().setPayload(response.getBytes(StandardCharsets.UTF_8)).create();
+            }
+
+        }while(payload.getType !=  FIN);
+    }
+
 }
 
