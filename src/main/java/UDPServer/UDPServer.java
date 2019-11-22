@@ -43,9 +43,9 @@ public class UDPServer {
                 buf.clear();
                 SocketAddress router = channel.receive(buf);
 
-                // Parse a packet from the received raw data.
-                Packet response  = assemblePackets(buf, directory);
 
+                Packet response  = assemblePackets(buf, directory);
+                // Parse a packet from the received raw data.
                 buf.flip();
                 Packet packet = Packet.fromBuffer(buf);
                 buf.flip();
