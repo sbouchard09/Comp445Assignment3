@@ -9,9 +9,14 @@ import Packet.Packet;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.DatagramChannel;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -20,7 +25,7 @@ import static java.util.Arrays.asList;
 public class UDPServer {
 
     private static final int DATA = 0;
-    private static final int SYM = 1;
+    private static final int SYN = 1;
     private static final int SYNACK = 2;
     private static final int ACK = 3;
     private static final int NACK = 4;
@@ -44,7 +49,7 @@ public class UDPServer {
                 SocketAddress router = channel.receive(buf);
 
 
-                Packet response  = assemblePackets(buf, directory);
+                Packet response = assemblePackets(buf, directory, router, channel);
                 // Parse a packet from the received raw data.
                 buf.flip();
                 Packet packet = Packet.fromBuffer(buf);
@@ -67,7 +72,7 @@ public class UDPServer {
         }
     }
 
-    private Packet assemblePackets(Buffer buffer, String directory, SocketAdresse router) {
+    private Packet assemblePackets(ByteBuffer buffer, String directory, SocketAddress router, DatagramChannel channel) throws IOException {
         HashMap<Integer, String> map = new HashMap<Integer, String>();
         Packet packet = null;
 
@@ -76,45 +81,44 @@ public class UDPServer {
             packet = Packet.fromBuffer(buffer);
             buffer.flip();
             String payload = new String(packet.getPayload(), StandardCharsets.UTF_8);
-            map.put(packet.getType == SYN) {
+            if(packet.getType() == SYN) {
                 return handleHandshake(packet);
-            } else if(packet.getType == DATA) {
-                sendAck(packet, router);
-            }else if(packet.getType == FIN) {
+            } else if(packet.getType() == DATA) {
+                sendAck(packet, router, channel);
+            }else if(packet.getType() == FIN) {
                 // assemble message in order
                 StringBuilder messageBuilder = new StringBuilder();
-                SortedSet<Integer> keys = new Treeset<>(map.ketSet());
+                SortedSet<Integer> keys = new TreeSet<>(map.keySet());
                 for(Integer key : keys) {
                     messageBuilder.append(map.get(key));
                 }
 
                 Response response = new Response(directory);
-                response.handleResquest(messageBuilder.toString());
-                String response = response.getResponse();
+                response.handleRequest(messageBuilder.toString());
+                String resp = response.getResponse();
 
-                return packet.toBuilder().setPayload(response.getBytes(StandardCharsets.UTF_8)).create();
+                return packet.toBuilder().setPayload(resp.getBytes(StandardCharsets.UTF_8)).create();
+            } else {
+                return null;
             }
 
-        }while(payload.getType !=  FIN);
+        }while(packet.getType() !=  FIN);
+
+        return null;
     }
 
-    private Packet sendAck(Packet packet, SocketAddress router){
+    private void sendAck(Packet packet, SocketAddress router, DatagramChannel channel) throws IOException {
         Packet response = packet.toBuilder().setSequenceNumber(packet.getSequenceNumber()).setType(ACK).create();
         channel.send(response.toBuffer(), router);
-
     }
 
-    private Packet handleHandshake(packet) {
+    private Packet handleHandshake(Packet packet) {
         String message = "SYNACK";
         Packet response = packet.toBuilder()
                 .setSequenceNumber(packet.getSequenceNumber()+1)
-                .setType(SYN_ACK).setPayload(message
-                        .getBytes(StandardCharset.UTF_8).create();
-
-
+                .setType(SYNACK).setPayload(message
+                        .getBytes(StandardCharsets.UTF_8)).create();
 
         return response;
-
     }
-
 }

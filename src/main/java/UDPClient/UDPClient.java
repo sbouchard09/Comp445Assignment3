@@ -4,6 +4,7 @@ package UDPClient;
 Using template as provided on Moodle
  **************************************/
 import Packet.Packet;
+import UDPServer.Response;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -14,10 +15,7 @@ import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static java.nio.channels.SelectionKey.OP_READ;
 
@@ -186,7 +184,7 @@ public class UDPClient {
         }
     }
 
-    private Packet assemblePackets(Buffer buffer, String directory, SocketAdresse router) {
+    private Packet assemblePackets(ByteBuffer buffer, String directory, SocketAddress router, DatagramChannel channel) throws IOException {
         HashMap<Integer, String> map = new HashMap<Integer, String>();
         Packet packet = null;
 
@@ -195,27 +193,30 @@ public class UDPClient {
             packet = Packet.fromBuffer(buffer);
             buffer.flip();
             String payload = new String(packet.getPayload(), StandardCharsets.UTF_8);
-            map.put(packet.getType == SYN) {
+            if(packet.getType() == SYN) {
                 return handleHandshake(packet);
-            } else if(packet.getType == DATA) {
-                sendAck(packet, router);
-            }else if(packet.getType == FIN) {
+            } else if(packet.getType() == DATA) {
+                sendAck(packet, router, channel);
+            }else if(packet.getType() == FIN) {
                 // assemble message in order
                 StringBuilder messageBuilder = new StringBuilder();
-                SortedSet<Integer> keys = new Treeset<>(map.ketSet());
+                SortedSet<Integer> keys = new TreeSet<>(map.keySet());
                 for(Integer key : keys) {
                     messageBuilder.append(map.get(key));
                 }
 
                 Response response = new Response(directory);
-                response.handleResquest(messageBuilder.toString());
-                String response = response.getResponse();
+                response.handleRequest(messageBuilder.toString());
+                String resp = response.getResponse();
 
-                return packet.toBuilder().setPayload(response.getBytes(StandardCharsets.UTF_8)).create();
+                return packet.toBuilder().setPayload(resp.getBytes(StandardCharsets.UTF_8)).create();
+            } else {
+                return null;
             }
 
-        }while(payload.getType !=  FIN);
-    }
+        }while(packet.getType() !=  FIN);
 
+        return null;
+    }
 }
 
