@@ -13,7 +13,7 @@ public class Response {
     private final String FORBIDDEN = "403 Forbidden";
     private final String NOT_FOUND = "405 Not Found";
 
-    private HashMap<String, String> headers;
+    private HashMap<String, String> headers = new HashMap<>();
     private String body = "";
     private String response;
     private String directory;
@@ -145,6 +145,8 @@ public class Response {
         }
         responseBuilder.append("\r\n");
         responseBuilder.append(body);
+
+        response = responseBuilder.toString();
     }
 
     private boolean isForbidden(String fileName){

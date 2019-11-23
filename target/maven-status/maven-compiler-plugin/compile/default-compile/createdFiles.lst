@@ -1,0 +1,15 @@
+UDPClient\Httpc.class
+Packet\Packet$Builder.class
+UDPClient\Help.class
+Packet\Packet.class
+UDPClient\UDPClient.class
+CLIParsing\Client\CLIParameter.class
+CLIParsing\Server\ServerParser.class
+CLIParsing\Client\GetParser.class
+UDPServer\Response.class
+UDPClient\Request\GetRequest.class
+CLIParsing\Client\PostParser.class
+UDPServer\Httpfs.class
+UDPClient\Request\PostRequest.class
+UDPServer\UDPServer.class
+UDPClient\Request\Request.class

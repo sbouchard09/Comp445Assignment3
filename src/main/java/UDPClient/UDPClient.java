@@ -7,6 +7,7 @@ import Packet.Packet;
 import UDPServer.Response;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
@@ -32,12 +33,14 @@ public class UDPClient {
     //private static final Logger logger = LoggerFactory.getLogger(UDPClient.class);
     private String message = "";
     private String response = "";
+    private InetSocketAddress clientAddress = new InetSocketAddress("localhost", 41830);
 
     public void runClient(SocketAddress routerAddr, InetSocketAddress serverAddr) throws IOException {
         try(DatagramChannel channel = DatagramChannel.open()){
+            channel.bind(clientAddress);
             HashMap<Long, Packet> packets = new HashMap<Long, Packet>();
             ArrayList<Packet> ackdPackets = new ArrayList<Packet>();
-            long sequenceNumber = handshake(channel, serverAddr);
+            long sequenceNumber = handshake(channel, serverAddr, routerAddr);
             if(sequenceNumber > -1) {
                 byte[] payload = message.getBytes();
 
@@ -75,6 +78,9 @@ public class UDPClient {
                         currentIndex = maxIndex + 1;
                     }
                 }
+            } else {
+                System.out.println("invalid packet");
+                return;
             }
 
             for(Map.Entry<Long, Packet> packet : packets.entrySet()) {
@@ -102,13 +108,16 @@ public class UDPClient {
             }
 
             // send FIN packet, let server know we're done sending
+            String finPayload = "FIN";
             Packet p = new Packet.Builder()
                     .setType(FIN)
                     .setSequenceNumber(sequenceNumber)
                     .setPortNumber(serverAddr.getPort())
                     .setPeerAddress(serverAddr.getAddress())
+                    .setPayload(finPayload.getBytes())
                     .create();
 
+            channel.send(p.toBuffer(), routerAddr);
             Packet resp = sendReceive(p, channel);
             response = new String(resp.getPayload(), StandardCharsets.UTF_8);
         }
@@ -142,16 +151,18 @@ public class UDPClient {
         return this.response;
     }
 
-    private long handshake(DatagramChannel channel, InetSocketAddress address) throws IOException {
+    private long handshake(DatagramChannel channel, InetSocketAddress serverAddress, SocketAddress routerAddress) throws IOException {
+        String payload = "SYN";
         Packet handshakePacket = new Packet.Builder()
                 .setType(SYN)
                 .setSequenceNumber(1L)
-                .setPortNumber(address.getPort())
-                .setPeerAddress(address.getAddress())
+                .setPortNumber(serverAddress.getPort())
+                .setPeerAddress(serverAddress.getAddress())
+                .setPayload(payload.getBytes())
                 .create();
 
         // send SYN
-        channel.send(handshakePacket.toBuffer(), address);
+        channel.send(handshakePacket.toBuffer(), routerAddress);
 
         // Try to receive a packet within timeout.
         channel.configureBlocking(false);
@@ -175,15 +186,18 @@ public class UDPClient {
             Packet ackPacket = new Packet.Builder()
                     .setType(ACK)
                     .setSequenceNumber(3L)
-                    .setPortNumber(address.getPort())
-                    .setPeerAddress(address.getAddress())
+                    .setPortNumber(serverAddress.getPort())
+                    .setPeerAddress(serverAddress.getAddress())
+                    .setPayload(payload.getBytes())
                     .create();
+            // send SYN
+            channel.send(handshakePacket.toBuffer(), routerAddress);
             return ackPacket.getSequenceNumber();
         } else {
             return -1;
         }
     }
-
+/*
     private Packet assemblePackets(ByteBuffer buffer, String directory, SocketAddress router, DatagramChannel channel) throws IOException {
         HashMap<Integer, String> map = new HashMap<Integer, String>();
         Packet packet = null;
@@ -218,5 +232,6 @@ public class UDPClient {
 
         return null;
     }
+    */
 }
 
