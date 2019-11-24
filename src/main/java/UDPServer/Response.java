@@ -32,6 +32,9 @@ public class Response {
         String[] info = requestArray2[0].split(" ");
         String requestMethod = info[0].replaceAll("[^a-zA-Z0-9]", "").toUpperCase(); // remove all non alphanumeric characters
         String file = info[1];
+        if(file.length() > 1) {
+            file = file.startsWith("/") ? file.substring(1) : file;
+        }
 
         headers.put("Date", getDate());
 
@@ -151,6 +154,7 @@ public class Response {
 
     private boolean isForbidden(String fileName){
         File f = new File(fileName);
+
         File currentDirectory = new File(directory);
         if(f.isDirectory()) {
             return true;

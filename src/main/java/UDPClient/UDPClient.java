@@ -56,7 +56,6 @@ public class UDPClient {
                     packets.put(p.getSequenceNumber(), p);
                     sequenceNumber = sequenceNumber + p.getPayload().length + Packet.MIN_LEN;
                 } else {
-                    System.out.println("Multiple packet support not yet implemented :(");
                     int currentIndex = 0;
                     while(currentIndex < payload.length) {
                         int maxIndex = Math.min(currentIndex + Packet.MAX_PAYLOAD, payload.length);
@@ -108,17 +107,19 @@ public class UDPClient {
             }
 
             // send FIN packet, let server know we're done sending
-            String finPayload = "FIN";
-            Packet p = new Packet.Builder()
-                    .setType(FIN)
-                    .setSequenceNumber(sequenceNumber)
-                    .setPortNumber(serverAddr.getPort())
-                    .setPeerAddress(serverAddr.getAddress())
-                    .setPayload(finPayload.getBytes())
-                    .create();
-
-            channel.send(p.toBuffer(), routerAddr);
-            Packet resp = sendReceive(p, channel);
+            Packet p, resp;
+            do {
+                String finPayload = "FIN";
+                p = new Packet.Builder()
+                        .setType(FIN)
+                        .setSequenceNumber(sequenceNumber)
+                        .setPortNumber(serverAddr.getPort())
+                        .setPeerAddress(serverAddr.getAddress())
+                        .setPayload(finPayload.getBytes())
+                        .create();
+                channel.send(p.toBuffer(), routerAddr);
+                resp = sendReceive(p, channel);
+            } while(resp.getType() != DATA);
             response = new String(resp.getPayload(), StandardCharsets.UTF_8);
         }
     }

@@ -60,6 +60,7 @@ public class UDPServer {
 
     private Packet assemblePackets(ByteBuffer buffer, String directory, SocketAddress router, DatagramChannel channel) throws IOException {
         Packet packet = null;
+        HashMap<Long, Packet> packets = new HashMap<>();
 
         buffer.flip();
         packet = Packet.fromBuffer(buffer);
@@ -84,7 +85,7 @@ public class UDPServer {
             String resp = response.getResponse();
             System.out.println("Response:\n" + resp);
 
-            return packet.toBuilder().setPayload(resp.getBytes(StandardCharsets.UTF_8)).create();
+            return packet.toBuilder().setType(DATA).setPayload(resp.getBytes(StandardCharsets.UTF_8)).create();
         } else if(packet.getType() == ACK) {
             System.out.println("Handshake ACK received");
             return null;
