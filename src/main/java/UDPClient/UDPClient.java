@@ -44,7 +44,7 @@ public class UDPClient {
             if(sequenceNumber > -1) {
                 byte[] payload = message.getBytes();
 
-                if(payload.length > Packet.MAX_PAYLOAD) {
+                if(payload.length <= Packet.MAX_PAYLOAD) {
                     Packet p = new Packet.Builder()
                             .setType(DATA)
                             .setSequenceNumber(sequenceNumber + 1)
@@ -119,7 +119,7 @@ public class UDPClient {
                         .create();
                 channel.send(p.toBuffer(), routerAddr);
                 resp = sendReceive(p, channel);
-            } while(resp.getType() != DATA);
+            } while(resp!= null && resp.getType() != DATA);
             response = new String(resp.getPayload(), StandardCharsets.UTF_8);
         }
     }
